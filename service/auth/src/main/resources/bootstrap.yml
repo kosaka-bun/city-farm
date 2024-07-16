@@ -1,0 +1,18 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: city-farm-auth
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      server-addr: vm.honoka.de:8848
+      username: root
+      password: 123456
+      config:
+        file-extension: yml
+    loadbalancer:
+      nacos:
+        enabled: true

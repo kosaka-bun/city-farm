@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: city-farm-gateway
+  profiles:
+    active: dev
+  config:
+    import: classpath:config/routes.yml
+  cloud:
+    nacos:
+      server-addr: vm.honoka.de:8848
+      username: root
+      password: 123456
+      config:
+        file-extension: yml
+    loadbalancer:
+      nacos:
+        enabled: true
+    gateway:
+      discovery:
+        locator:
+          enabled: true
