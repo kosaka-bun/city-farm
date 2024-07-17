@@ -6,6 +6,9 @@ spring:
     name: city-farm-auth
   profiles:
     active: dev
+  config:
+    import:
+      - optional:nacos:service-common.yml?refreshEnabled=true
   cloud:
     nacos:
       server-addr: vm.honoka.de:8848
@@ -13,6 +16,7 @@ spring:
       password: 123456
       config:
         file-extension: yml
-    loadbalancer:
-      nacos:
-        enabled: true
+
+# noinspection SpringBootApplicationYaml
+custom:
+  db-name: city_farm_auth

@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: "jdbc:mysql://vm.honoka.de:3306/${custom.db-name}?serverTimezone=GMT%2B8&\
+            rewriteBatchedStatements=true"
+    username: root
+    password: 123456
+  cloud:
+    loadbalancer:
+      nacos:
+        enabled: true

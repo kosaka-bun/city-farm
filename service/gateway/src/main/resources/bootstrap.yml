@@ -7,7 +7,8 @@ spring:
   profiles:
     active: dev
   config:
-    import: classpath:config/routes.yml
+    import:
+      - classpath:config/routes.yml
   cloud:
     nacos:
       server-addr: vm.honoka.de:8848

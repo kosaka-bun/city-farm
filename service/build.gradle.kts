@@ -36,9 +36,6 @@ subprojects {
         kotlin(project)
         implementation("org.springframework.boot:spring-boot-starter")
         implementation("org.springframework.cloud:spring-cloud-starter-bootstrap")
-        if(!project.name.contains("gateway")) {
-            implementation("org.springframework.boot:spring-boot-starter-web")
-        }
         implementation("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery")
         implementation("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config")
         implementation("org.springframework.cloud:spring-cloud-starter-loadbalancer")
@@ -46,6 +43,13 @@ subprojects {
         implementation("cn.hutool:hutool-all:5.8.18")
         //Test
         testImplementation("org.springframework.boot:spring-boot-starter-test")
+    }
+
+    dependencies {
+        if(project.name.contains("gateway")) return@dependencies
+        implementation("org.springframework.boot:spring-boot-starter-web")
+        runtimeOnly("com.mysql:mysql-connector-j:8.0.33")
+        implementation("com.baomidou:mybatis-plus-boot-starter:3.5.5")
     }
 
     tasks {

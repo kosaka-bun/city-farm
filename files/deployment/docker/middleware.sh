@@ -14,3 +14,12 @@ docker run --name nacos-server \
   -e NACOS_AUTH_TOKEN=SecretKey012345678901234567890123456789012345678901234567890123456789 \
   -p 8848:8848 -p 9848:9848 -p 9849:9849 \
   -d nacos/nacos-server:v2.3.2
+
+docker rm -f mysql
+docker run --name mysql \
+  --restart=always \
+  -v /opt/mysql/conf.d:/etc/mysql/conf.d \
+  -v /opt/mysql/data:/var/lib/mysql \
+  -e MYSQL_ROOT_PASSWORD=123456 \
+  -p 3306:3306 \
+  -d mysql:8.0.33
