@@ -2,9 +2,15 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: "jdbc:mysql://vm.honoka.de:3306/${custom.db-name}?serverTimezone=GMT%2B8&\
-            rewriteBatchedStatements=true"
+          rewriteBatchedStatements=true"
     username: root
     password: 123456
+  data:
+    redis:
+      host: vm.honoka.de
+      port: 6379
+      password: 123456
+      database: ${custom.redis-db-num}
   cloud:
     loadbalancer:
       nacos:

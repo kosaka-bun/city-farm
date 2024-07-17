@@ -23,3 +23,17 @@ docker run --name mysql \
   -e MYSQL_ROOT_PASSWORD=123456 \
   -p 3306:3306 \
   -d mysql:8.0.33
+
+# 每60秒检测一次，若从上一次执行快照开始，到本次执行检测的这段时间内，至少有1次写入操作，则进行一次快照保存
+docker rm -f redis
+docker run --name redis \
+  --restart=always \
+  -v /opt/redis/data:/data \
+  -e REDIS_PASSWORD=123456 \
+  -p 6379:6379 \
+  -d redis:7.2.5-alpine \
+  /bin/sh -c '
+  redis-server --save 60 1 \
+    --loglevel warning \
+    --requirepass ${REDIS_PASSWORD}
+  '

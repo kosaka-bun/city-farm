@@ -50,6 +50,7 @@ subprojects {
         implementation("org.springframework.boot:spring-boot-starter-web")
         runtimeOnly("com.mysql:mysql-connector-j:8.0.33")
         implementation("com.baomidou:mybatis-plus-boot-starter:3.5.5")
+        implementation("org.springframework.boot:spring-boot-starter-data-redis")
     }
 
     tasks {

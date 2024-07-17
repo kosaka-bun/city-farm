@@ -8,7 +8,7 @@ spring:
     active: dev
   config:
     import:
-      - optional:nacos:service-common.yml?refreshEnabled=true
+      - nacos:service-common.yml?refreshEnabled=true
   cloud:
     nacos:
       server-addr: vm.honoka.de:8848
@@ -20,3 +20,4 @@ spring:
 # noinspection SpringBootApplicationYaml
 custom:
   db-name: city_farm_auth
+  redis-db-num: 0
